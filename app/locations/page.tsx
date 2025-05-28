@@ -2,6 +2,8 @@ import { MotionSection } from "@/components/motion-section"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+import { Heading, Text, BrandAccent } from "@/components/ui/typography"
 import { MapPin, Phone, Clock, Car } from "lucide-react"
 import Link from "next/link"
 
@@ -49,10 +51,10 @@ export default function LocationsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#FAF4EF] to-white">
+    <div className="min-h-screen bg-gradient-to-b from-background to-accent/30">
       {/* Hero Section */}
-      <MotionSection className="py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <MotionSection className="section-padding">
+        <div className="max-w-7xl mx-auto container-padding text-center">
           <SectionHeader
             title="Our Locations"
             subtitle="Find the Spice Life restaurant nearest to you and experience authentic Indian cuisine"
@@ -60,87 +62,87 @@ export default function LocationsPage() {
           />
           <div className="grid md:grid-cols-3 gap-6 text-center">
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-[#F28C28]">3</div>
-              <div className="text-gray-600">Locations</div>
+              <Heading as="h3" className="text-3xl text-primary">3</Heading>
+              <Text>Locations</Text>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-[#F28C28]">50K+</div>
-              <div className="text-gray-600">Happy Customers</div>
+              <Heading as="h3" className="text-3xl text-primary">50K+</Heading>
+              <Text>Happy Customers</Text>
             </div>
             <div className="space-y-2">
-              <div className="text-3xl font-bold text-[#F28C28]">30+</div>
-              <div className="text-gray-600">Years Serving</div>
+              <Heading as="h3" className="text-3xl text-primary">30+</Heading>
+              <Text>Years Serving</Text>
             </div>
           </div>
         </div>
       </MotionSection>
 
       {/* Locations Grid */}
-      <MotionSection className="py-20" delay={0.2}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <MotionSection className="section-padding bg-accent/20" delay={0.2}>
+        <div className="max-w-7xl mx-auto container-padding">
           <div className="space-y-16">
             {locations.map((location, index) => (
               <MotionSection key={location.name} delay={0.1 * index}>
-                <Card className="overflow-hidden border-0 shadow-xl">
+                <Card className="overflow-hidden card-elevated">
                   <div className="grid lg:grid-cols-2 gap-0">
                     {/* Location Info */}
                     <CardContent className="p-8 lg:p-12 space-y-8">
                       <div>
-                        <CardTitle className="text-2xl md:text-3xl font-bold text-[#4A1C1A] font-serif mb-4">
-                          {location.name}
+                        <CardTitle className="mb-4">
+                          <Heading as="h2" className="text-2xl md:text-3xl">
+                            {location.name}
+                          </Heading>
                         </CardTitle>
                         <div className="space-y-4">
                           <div className="flex items-start gap-3">
-                            <MapPin className="w-5 h-5 text-[#F28C28] mt-1 flex-shrink-0" />
+                            <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                             <div>
-                              <div className="font-medium">{location.address}</div>
-                              <div className="text-gray-600">{location.city}</div>
+                              <Text className="font-medium text-foreground">{location.address}</Text>
+                              <Text>{location.city}</Text>
                             </div>
                           </div>
                           <div className="flex items-center gap-3">
-                            <Phone className="w-5 h-5 text-[#F28C28]" />
-                            <span className="font-medium">{location.phone}</span>
+                            <Phone className="w-5 h-5 text-primary" />
+                            <Text className="font-medium text-foreground">{location.phone}</Text>
                           </div>
                           <div className="flex items-start gap-3">
-                            <Clock className="w-5 h-5 text-[#F28C28] mt-1" />
+                            <Clock className="w-5 h-5 text-primary mt-1" />
                             <div>
-                              <div>Mon-Fri: {location.hours.weekdays}</div>
-                              <div>Sat-Sun: {location.hours.weekends}</div>
+                              <Text>Mon-Fri: {location.hours.weekdays}</Text>
+                              <Text>Sat-Sun: {location.hours.weekends}</Text>
                             </div>
                           </div>
                         </div>
                       </div>
 
                       <div>
-                        <h4 className="font-semibold text-[#4A1C1A] mb-3">Features</h4>
+                        <Heading as="h4" className="text-lg mb-3">Features</Heading>
                         <div className="flex flex-wrap gap-2">
                           {location.features.map((feature) => (
-                            <span
+                            <Badge
                               key={feature}
-                              className="px-3 py-1 bg-[#FEF3E8] text-[#F28C28] text-sm rounded-full border border-[#F28C28]/20"
+                              variant="secondary"
+                              className="bg-accent text-primary"
                             >
                               {feature}
-                            </span>
+                            </Badge>
                           ))}
                         </div>
                       </div>
 
                       <div className="flex flex-col sm:flex-row gap-4">
-                        <Button className="bg-[#F28C28] hover:bg-[#E07B1F] text-white">
+                        <Button className="btn-primary">
                           <Car className="w-4 h-4 mr-2" />
                           Get Directions
                         </Button>
-                        <Button
-                          variant="outline"
-                          className="border-[#4A1C1A] text-[#4A1C1A] hover:bg-[#4A1C1A] hover:text-white"
-                        >
+                        <Button variant="outline">
                           Call Restaurant
                         </Button>
                       </div>
                     </CardContent>
 
                     {/* Map */}
-                    <div className="bg-gray-100 min-h-[400px] lg:min-h-full relative">
+                    <div className="bg-muted min-h-[400px] lg:min-h-full relative">
                       <iframe
                         src={location.mapEmbed}
                         width="100%"
@@ -162,32 +164,31 @@ export default function LocationsPage() {
       </MotionSection>
 
       {/* Delivery Info */}
-      <MotionSection className="py-20 bg-[#4A1C1A] text-white" delay={0.3}>
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold font-serif">Can&apos;t Visit Us?</h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            We deliver the authentic Spice Life experience right to your doorstep. Order online for quick delivery or
-            pickup.
-          </p>
+      <MotionSection className="section-padding gradient-secondary text-secondary-foreground" delay={0.3}>
+        <div className="max-w-4xl mx-auto container-padding text-center space-y-8">
+          <Heading as="h2" className="text-secondary-foreground">Can&apos;t Visit Us?</Heading>
+          <Text className="text-xl text-secondary-foreground/80 max-w-2xl mx-auto">
+            We deliver the authentic <BrandAccent className="text-primary">Spice Life</BrandAccent> experience right to your doorstep. Order online for quick delivery or pickup.
+          </Text>
           <div className="grid md:grid-cols-3 gap-8 mt-12">
             <div className="space-y-3">
               <div className="text-2xl">🚚</div>
-              <h3 className="text-xl font-semibold">Fast Delivery</h3>
-              <p className="text-gray-300">30-45 minutes average delivery time</p>
+              <Heading as="h3" className="text-xl text-secondary-foreground">Fast Delivery</Heading>
+              <Text className="text-secondary-foreground/80">30-45 minutes average delivery time</Text>
             </div>
             <div className="space-y-3">
               <div className="text-2xl">📱</div>
-              <h3 className="text-xl font-semibold">Easy Ordering</h3>
-              <p className="text-gray-300">Order through our app or website</p>
+              <Heading as="h3" className="text-xl text-secondary-foreground">Easy Ordering</Heading>
+              <Text className="text-secondary-foreground/80">Order through our app or website</Text>
             </div>
             <div className="space-y-3">
               <div className="text-2xl">🔥</div>
-              <h3 className="text-xl font-semibold">Fresh & Hot</h3>
-              <p className="text-gray-300">Specially packaged to maintain quality</p>
+              <Heading as="h3" className="text-xl text-secondary-foreground">Fresh & Hot</Heading>
+              <Text className="text-secondary-foreground/80">Specially packaged to maintain quality</Text>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button asChild size="lg" className="bg-[#F28C28] hover:bg-[#E07B1F] text-white">
+            <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
               <a
                 href="https://order.toasttab.com/online/spice-life-alexandria-3616-king-street"
                 target="_blank"
@@ -200,14 +201,14 @@ export default function LocationsPage() {
               asChild
               size="lg"
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-[#4A1C1A]"
+              className="border-white text-white hover:bg-white hover:text-secondary"
             >
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
-          <p className="text-gray-600 leading-relaxed">
+          <Text className="text-secondary-foreground/70 leading-relaxed">
             We&apos;d love to hear from you! Whether you have questions about our menu, want to make a reservation, or need catering for your special event, our team is here to help.
-          </p>
+          </Text>
         </div>
       </MotionSection>
     </div>

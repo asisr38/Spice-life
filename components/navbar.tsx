@@ -136,9 +136,9 @@ export function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="md:hidden bg-white border-t border-gray-200 shadow-lg"
+            className="md:hidden bg-white border-t border-gray-200 shadow-lg fixed top-16 sm:top-20 left-0 right-0 w-full overflow-hidden"
           >
-            <div className="px-4 py-6 space-y-4">
+            <div className="px-4 py-6 space-y-4 max-w-full">
               {NAV_ITEMS.map((item, index) => (
                 <motion.button
                   key={item.name}

@@ -1,17 +1,33 @@
 import { cn } from "@/lib/utils"
+import { SectionTitle, SectionSubtitle } from "@/components/ui/typography"
 
 interface SectionHeaderProps {
   title: string
   subtitle?: string
-  className?: string
   centered?: boolean
+  className?: string
 }
 
-export function SectionHeader({ title, subtitle, className, centered = true }: SectionHeaderProps) {
+export function SectionHeader({
+  title,
+  subtitle,
+  centered = true,
+  className,
+}: SectionHeaderProps) {
   return (
-    <div className={cn("space-y-4", centered && "text-center", className)}>
-      <h2 className="text-4xl md:text-5xl font-bold text-[#4A1C1A] font-serif">{title}</h2>
-      {subtitle && <p className="text-lg text-gray-600 max-w-2xl mx-auto">{subtitle}</p>}
+    <div className={cn(
+      "space-y-4",
+      centered ? "text-center" : "text-left",
+      className
+    )}>
+      <SectionTitle className={cn(!centered && "text-left")}>
+        {title}
+      </SectionTitle>
+      {subtitle && (
+        <SectionSubtitle className={cn(!centered && "text-left mx-0")}>
+          {subtitle}
+        </SectionSubtitle>
+      )}
     </div>
   )
 }
