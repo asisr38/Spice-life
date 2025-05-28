@@ -1,13 +1,12 @@
 "use client"
 import { MotionSection } from "@/components/motion-section"
 import { SectionHeader } from "@/components/section-header"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Badge } from "@/components/ui/badge"
+import { MapPin, Phone, Clock, Mail, MessageCircle, Star, Users, Award, Heart, Utensils, Crown, Sparkles } from "lucide-react"
 // import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs" // Tabs are not used on this page
-import { CheckCircle, MapPin, Phone, Clock, Car, Mail, MessageCircle, Star, Users, Award, Heart, Utensils, Crown, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ResponsiveOrderButton } from "@/components/responsive-order-button"
@@ -19,7 +18,6 @@ import { RetroGrid } from "@/components/ui/retro-grid"
 import { LeafletMapWrapper } from "@/components/leaflet-map-wrapper"
 import { motion } from "framer-motion"
 import { Mascot } from "@/components/ui/mascot"
-import { StickyBanner } from "@/components/ui/sticky-banner"
 
 // MenuImageSlider component for menu images
 const menuImages = [
