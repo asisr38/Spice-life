@@ -164,7 +164,7 @@ export default function LocationsPage() {
       {/* Delivery Info */}
       <MotionSection className="py-20 bg-[#4A1C1A] text-white" delay={0.3}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-bold font-serif">Can't Visit Us?</h2>
+          <h2 className="text-4xl md:text-5xl font-bold font-serif">Can&apos;t Visit Us?</h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             We deliver the authentic Spice Life experience right to your doorstep. Order online for quick delivery or
             pickup.
@@ -205,6 +205,9 @@ export default function LocationsPage() {
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
+          <p className="text-gray-600 leading-relaxed">
+            We&apos;d love to hear from you! Whether you have questions about our menu, want to make a reservation, or need catering for your special event, our team is here to help.
+          </p>
         </div>
       </MotionSection>
     </div>

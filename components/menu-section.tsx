@@ -1,9 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
 
 interface MenuItem {
@@ -25,20 +23,9 @@ export interface MenuCategory {
 
 export interface MenuSectionProps {
   category: MenuCategory;
-  images: string[];
 }
 
-export function MenuSection({ category, images }: MenuSectionProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % category.items.length);
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + category.items.length) % category.items.length);
-  };
-
+export function MenuSection({ category }: MenuSectionProps) {
   const springProps = useSpring({
     opacity: 1,
     transform: "translateY(0px)",

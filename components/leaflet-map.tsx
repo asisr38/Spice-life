@@ -10,7 +10,10 @@ import { LOCATIONS } from '@/lib/constants'
 import 'leaflet/dist/leaflet.css'
 
 // Fix for default markers in react-leaflet
-delete (L.Icon.Default.prototype as any)._getIconUrl
+interface IconDefault extends L.Icon.Default {
+  _getIconUrl?: () => string;
+}
+delete (L.Icon.Default.prototype as IconDefault)._getIconUrl
 L.Icon.Default.mergeOptions({
   iconRetinaUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon-2x.png',
   iconUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-icon.png',
@@ -60,12 +63,15 @@ function FitBounds() {
 }
 
 // Component to handle map reset functionality
-function MapResetControl({ onReset }: { onReset: () => void }) {
+function MapResetControl() {
   const map = useMap()
   
   useEffect(() => {
     // Store the reset function on the map instance so it can be called from outside
-    ;(map as any).resetView = () => {
+    interface MapWithReset extends L.Map {
+      resetView?: () => void;
+    }
+    (map as MapWithReset).resetView = () => {
       const bounds = L.latLngBounds(
         LOCATIONS.map(location => [location.coordinates.lat, location.coordinates.lng])
       )
@@ -113,7 +119,7 @@ function ScrollWheelZoomControl() {
 }
 
 interface LeafletMapProps {
-  className?: string
+  className?: string;
 }
 
 export function LeafletMap({ className }: LeafletMapProps) {
@@ -121,7 +127,10 @@ export function LeafletMap({ className }: LeafletMapProps) {
 
   const handleReset = () => {
     if (mapRef.current) {
-      const map = mapRef.current as any
+      interface MapWithReset extends L.Map {
+        resetView?: () => void;
+      }
+      const map = mapRef.current as MapWithReset
       if (map.resetView) {
         map.resetView()
       }
@@ -145,7 +154,7 @@ export function LeafletMap({ className }: LeafletMapProps) {
         />
         
         <FitBounds />
-        <MapResetControl onReset={handleReset} />
+        <MapResetControl />
         <ScrollWheelZoomControl />
         
         {LOCATIONS.map((location) => (

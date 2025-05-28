@@ -3,7 +3,6 @@ import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
-import Link from "next/link"
 
 export default function AboutPage() {
   return (

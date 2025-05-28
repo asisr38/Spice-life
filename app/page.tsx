@@ -3,14 +3,10 @@ import { MotionSection } from "@/components/motion-section"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Clock, Mail, MessageCircle, Star, Users, Award, Heart, Utensils, Crown, Sparkles } from "lucide-react"
-// import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs" // Tabs are not used on this page
+import { MapPin, Phone, Clock, Mail, Heart, Users, Award, Utensils, Crown } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { ResponsiveOrderButton } from "@/components/responsive-order-button"
-import { useState } from "react"
 import { Navbar } from "@/components/navbar"
 import { LOCATIONS } from "@/lib/constants"
 import { CreativePricing, type PricingTier } from "@/components/ui/creative-pricing"
@@ -19,64 +15,7 @@ import { LeafletMapWrapper } from "@/components/leaflet-map-wrapper"
 import { motion } from "framer-motion"
 import { Mascot } from "@/components/ui/mascot"
 
-// MenuImageSlider component for menu images
-const menuImages = [
-  {
-    src: "/images/menu/menu-first.png",
-    alt: "Spice Life Menu - Page 1"
-  },
-  {
-    src: "/images/menu/menu-second.png",
-    alt: "Spice Life Menu - Page 2"
-  },
-  // Add more menu images here if available
-]
-
-function MenuImageSlider() {
-  const [index, setIndex] = useState(0)
-  const prev = () => setIndex((i) => (i === 0 ? menuImages.length - 1 : i - 1))
-  const next = () => setIndex((i) => (i === menuImages.length - 1 ? 0 : i + 1))
-  
-  return (
-    <div className="relative overflow-hidden rounded-2xl shadow-spice-lg">
-      <Image
-        src={menuImages[index].src}
-        alt={menuImages[index].alt}
-        width={800}
-        height={600}
-        className="object-cover w-full h-full"
-        priority
-      />
-      {menuImages.length > 1 && (
-        <>
-          <button
-            onClick={prev}
-            className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-spice-500 text-white p-3 rounded-full shadow-lg hover:bg-spice-600 transition-colors focus:outline-none focus:ring-2 focus:ring-spice-400"
-            aria-label="Previous menu image"
-          >
-            ◀
-          </button>
-          <button
-            onClick={next}
-            className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-spice-500 text-white p-3 rounded-full shadow-lg hover:bg-spice-600 transition-colors focus:outline-none focus:ring-2 focus:ring-spice-400"
-            aria-label="Next menu image"
-          >
-            ▶
-          </button>
-        </>
-      )}
-    </div>
-  )
-}
-
 export default function HomePage() {
-  // Menu data from the actual Spice Life menu - REMOVED (unused)
-  /*
-  const menuCategories = [
-    // ... large array removed for brevity
-  ]
-  */
-
   // Values data with improved content
   const values = [
     {
@@ -87,7 +26,7 @@ export default function HomePage() {
     {
       title: "Fresh Ingredients",
       description: "We source quality local produce and combine it with authentic spices for the perfect balance.",
-      icon: <Star className="w-8 h-8 text-spice-500" />,
+      icon: <Heart className="w-8 h-8 text-spice-500" />,
     },
     {
       title: "Community Focus",
@@ -135,7 +74,7 @@ export default function HomePage() {
     },
     {
       name: "Family Gathering",
-      icon: <Sparkles className="w-6 h-6" />,
+      icon: <Heart className="w-6 h-6" />,
       price: 25,
       description: "Intimate family celebrations made memorable",
       color: "purple",
@@ -271,7 +210,7 @@ export default function HomePage() {
                   className="space-y-6 text-gray-700 leading-relaxed"
                 >
                   <p className="text-lg">
-                    At Spice Life, we're passionate about bringing you the authentic flavors of India. Our kitchen is where traditional recipes meet modern culinary techniques, creating dishes that honor our heritage while delighting contemporary palates.
+                    At Spice Life, we&apos;re passionate about bringing you the authentic flavors of India. Our kitchen is where traditional recipes meet modern culinary techniques, creating dishes that honor our heritage while delighting contemporary palates.
                   </p>
                   <p>
                     Every dish is carefully crafted using the finest spices and freshest ingredients. We believe that great food brings people together, and our mission is to share the warmth and richness of Indian cuisine with our community.
@@ -364,17 +303,6 @@ export default function HomePage() {
               subtitle="Discover authentic Indian flavors crafted with love and tradition"
               className="mb-16"
             />
-
-            {/* Image Slider for Menu */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative w-full max-w-4xl mx-auto mb-12"
-            >
-              <MenuImageSlider />
-            </motion.div>
 
             {/* Menu Categories Preview */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-16">
@@ -490,7 +418,7 @@ export default function HomePage() {
           <MotionSection>
             <SectionHeader
               title="Get in Touch"
-              subtitle="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+              subtitle="We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible."
               className="mb-16"
             />
 
@@ -503,20 +431,20 @@ export default function HomePage() {
                       <div className="grid sm:grid-cols-2 gap-6">
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-brown-900">First Name *</label>
-                          <Input placeholder="John" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
+                          <input placeholder="John" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
                         </div>
                         <div className="space-y-2">
                           <label className="text-sm font-medium text-brown-900">Last Name *</label>
-                          <Input placeholder="Doe" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
+                          <input placeholder="Doe" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
                         </div>
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-brown-900">Email Address *</label>
-                        <Input type="email" placeholder="john@example.com" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
+                        <input type="email" placeholder="john@example.com" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-brown-900">Phone Number</label>
-                        <Input placeholder="+1 (555) 123-4567" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
+                        <input placeholder="+1 (555) 123-4567" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-brown-900">Preferred Location</label>
@@ -531,17 +459,16 @@ export default function HomePage() {
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-brown-900">Subject *</label>
-                        <Input placeholder="How can we help you?" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
+                        <input placeholder="How can we help you?" className="border-gray-300 focus:border-spice-500 focus:ring-spice-500" />
                       </div>
                       <div className="space-y-2">
                         <label className="text-sm font-medium text-brown-900">Message *</label>
-                        <Textarea
+                        <textarea
                           placeholder="Tell us more about your inquiry..."
                           className="border-gray-300 focus:border-spice-500 focus:ring-spice-500 min-h-[120px]"
                         />
                       </div>
                       <Button size="lg" className="w-full bg-spice-500 hover:bg-spice-600 text-white">
-                        <MessageCircle className="w-4 h-4 mr-2" />
                         Send Message
                       </Button>
                     </form>

@@ -218,61 +218,63 @@ export default function CateringPage() {
       </MotionSection>
 
       {/* Contact Form */}
-      <MotionSection className="py-20 bg-white" delay={0.4} id="contact">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeader
-            title="Get Your Quote"
-            subtitle="Tell us about your event and we'll create a custom proposal"
-            className="mb-12"
-          />
-          <Card className="border-0 shadow-xl">
-            <CardContent className="p-8 md:p-12">
-              <form className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Full Name *</label>
-                    <Input placeholder="Your full name" className="border-gray-300" />
+      <section id="contact" className="py-20 bg-white">
+        <MotionSection delay={0.4}>
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <SectionHeader
+              title="Get Your Quote"
+              subtitle="Tell us about your event and we'll create a custom proposal"
+              className="mb-12"
+            />
+            <Card className="border-0 shadow-xl">
+              <CardContent className="p-8 md:p-12">
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Full Name *</label>
+                      <Input placeholder="Your full name" className="border-gray-300" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Email Address *</label>
+                      <Input type="email" placeholder="your@email.com" className="border-gray-300" />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Phone Number *</label>
+                      <Input placeholder="+91 98765 43210" className="border-gray-300" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Event Date</label>
+                      <Input type="date" className="border-gray-300" />
+                    </div>
+                  </div>
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Number of Guests *</label>
+                      <Input placeholder="e.g., 50" className="border-gray-300" />
+                    </div>
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-[#4A1C1A]">Event Type</label>
+                      <Input placeholder="Wedding, Corporate, etc." className="border-gray-300" />
+                    </div>
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Email Address *</label>
-                    <Input type="email" placeholder="your@email.com" className="border-gray-300" />
+                    <label className="text-sm font-medium text-[#4A1C1A]">Additional Details</label>
+                    <Textarea
+                      placeholder="Tell us more about your event, dietary requirements, venue details, etc."
+                      className="border-gray-300 min-h-[120px]"
+                    />
                   </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Phone Number *</label>
-                    <Input placeholder="+91 98765 43210" className="border-gray-300" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Event Date</label>
-                    <Input type="date" className="border-gray-300" />
-                  </div>
-                </div>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Number of Guests *</label>
-                    <Input placeholder="e.g., 50" className="border-gray-300" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-medium text-[#4A1C1A]">Event Type</label>
-                    <Input placeholder="Wedding, Corporate, etc." className="border-gray-300" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-[#4A1C1A]">Additional Details</label>
-                  <Textarea
-                    placeholder="Tell us more about your event, dietary requirements, venue details, etc."
-                    className="border-gray-300 min-h-[120px]"
-                  />
-                </div>
-                <Button size="lg" className="w-full bg-[#F28C28] hover:bg-[#E07B1F] text-white">
-                  Submit Quote Request
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
-        </div>
-      </MotionSection>
+                  <Button size="lg" className="w-full bg-[#F28C28] hover:bg-[#E07B1F] text-white">
+                    Submit Quote Request
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </MotionSection>
+      </section>
 
       {/* CTA Section */}
       <MotionSection className="py-20 bg-[#4A1C1A] text-white" delay={0.5}>

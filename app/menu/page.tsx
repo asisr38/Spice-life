@@ -3,10 +3,6 @@ import { SectionHeader } from "@/components/section-header";
 import { MenuSection } from "@/components/menu-section";
 
 export default function MenuPage() {
-  const menuImages = [
-    "/images/menu-qr-code.png",
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#FAF4EF] to-[#F28C28]">
       <MotionSection className="py-20 bg-[#FEF3E8]">
@@ -30,7 +26,7 @@ export default function MenuPage() {
               Order Online - Location 2
             </a>
           </div>
-          <MenuSection category={{ id: "1", name: "All Items", items: [] }} images={menuImages} />
+          <MenuSection category={{ id: "1", name: "All Items", items: [] }} />
         </div>
       </MotionSection>
     </div>

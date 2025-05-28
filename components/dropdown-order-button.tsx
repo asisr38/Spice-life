@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
-import { ChevronDown, MapPin, ExternalLink } from "lucide-react"
+import { ChevronDown } from "lucide-react"
 import { LOCATIONS } from "@/lib/constants"
 
 interface DropdownOrderButtonProps {

@@ -1,10 +1,7 @@
 import { MotionSection } from "@/components/motion-section"
 import { SectionHeader } from "@/components/section-header"
 import { Card, CardContent } from "@/components/ui/card"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
-import { MapPin, Phone, Mail, Clock, MessageCircle } from "lucide-react"
+import { MapPin, Phone, Clock, Mail } from "lucide-react"
 
 export default function ContactPage() {
   const contactInfo = [

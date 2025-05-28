@@ -6,10 +6,14 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 // Format currency
-export function formatCurrency(amount: number): string {
-  return new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD',
+export function formatCurrency(
+  amount: number,
+  currency: string = "USD",
+  locale: string = "en-US"
+): string {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency,
   }).format(amount)
 }
 
@@ -68,24 +72,24 @@ export function getSpiceLevelIndicator(level: number): string {
 }
 
 // Debounce function
-export function debounce<T extends (...args: any[]) => any>(
-  func: T,
+export function debounce<T extends unknown[]>(
+  func: (...args: T) => void,
   wait: number
-): (...args: Parameters<T>) => void {
-  let timeout: NodeJS.Timeout
-  return (...args: Parameters<T>) => {
-    clearTimeout(timeout)
+): (...args: T) => void {
+  let timeout: NodeJS.Timeout | null = null
+  return (...args: T) => {
+    if (timeout) clearTimeout(timeout)
     timeout = setTimeout(() => func(...args), wait)
   }
 }
 
 // Throttle function
-export function throttle<T extends (...args: any[]) => any>(
-  func: T,
+export function throttle<T extends unknown[]>(
+  func: (...args: T) => void,
   limit: number
-): (...args: Parameters<T>) => void {
+): (...args: T) => void {
   let inThrottle: boolean
-  return (...args: Parameters<T>) => {
+  return (...args: T) => {
     if (!inThrottle) {
       func(...args)
       inThrottle = true
