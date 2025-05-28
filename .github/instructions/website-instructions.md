@@ -85,3 +85,15 @@ The website can be deployed to platforms like Vercel or Netlify. Ensure the `nex
 - Follow the existing coding standards and use reusable components wherever possible.
 
 For further assistance, refer to the codebase or contact the development team.
+
+Maryland
+128 Ellington Blvd,
+Gaithersburg MD 20878
+Phone: 1-240-428-1427
+Email: info@spicelifemd.com
+
+Virginia
+3616 King Street
+Alexandria, VA 22302
+Phone: 1-703-667-0544
+Email: info@spicelifemd.com

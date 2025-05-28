@@ -72,7 +72,7 @@ export function Navbar() {
             aria-label="Spice Life Home"
           >
             <Image
-              src="/images/logo/spiceLifeLogo1.png"
+              src="/images/logo/spicelifeLogoEnhanced_nobg.png"
               alt="Spice Life Logo"
               width={40}
               height={40}

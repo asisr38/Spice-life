@@ -537,43 +537,6 @@ export default function HomePage() {
                     </Card>
                   </MotionSection>
                 ))}
-                
-                {/* General Contact Info */}
-                <MotionSection delay={0.3}>
-                  <Card className="border-0 shadow-spice bg-spice-50">
-                    <CardContent className="p-6">
-                      <h3 className="text-xl font-bold text-brown-900 font-serif mb-4">
-                        General Information
-                      </h3>
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-3">
-                          <Mail className="w-5 h-5 text-spice-500" />
-                          <div>
-                            <div className="font-medium text-gray-800">General Inquiries</div>
-                            <a 
-                              href="mailto:info@spicelifemd.com"
-                              className="text-gray-600 hover:text-spice-500 transition-colors"
-                            >
-                              info@spicelifemd.com
-                            </a>
-                          </div>
-                        </div>
-                        <div className="flex items-center gap-3">
-                          <Utensils className="w-5 h-5 text-spice-500" />
-                          <div>
-                            <div className="font-medium text-gray-800">Catering Services</div>
-                            <a 
-                              href="mailto:info@spicelifemd.com"
-                              className="text-gray-600 hover:text-spice-500 transition-colors"
-                            >
-                              info@spicelifemd.com
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                </MotionSection>
               </div>
             </div>
           </MotionSection>

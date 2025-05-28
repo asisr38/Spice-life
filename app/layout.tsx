@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Spice Life",
     images: [
       {
-        url: "/images/logo/spiceLifeLogo1.png",
+        url: "/images/logo/spicelifeLogoEnhanced_nobg.png",
         width: 1200,
         height: 630,
         alt: "Spice Life Restaurant Logo",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Spice Life - Authentic Indian Restaurant",
     description: "Experience the authentic flavors of India with a modern twist.",
-    images: ["/images/logo/spiceLifeLogo1.png"],
+    images: ["/images/logo/spicelifeLogoEnhanced_nobg.png"],
   },
   robots: {
     index: true,
@@ -92,8 +92,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/images/logo/spiceLifeLogo1.png" />
-        <link rel="apple-touch-icon" href="/images/logo/spiceLifeLogo1.png" />
+        <link rel="icon" href="/images/logo/fav.png" />
+        <link rel="apple-touch-icon" href="/images/logo/fav.png" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#F28C28" />
       </head>
@@ -141,7 +141,7 @@ export default function RootLayout({
                 </div>
               </div>
               <div className="border-t border-gray-600 mt-8 pt-8 text-center text-gray-300">
-                <p>&copy; 2024 Spice Life Restaurant. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Spice Life Restaurant. All rights reserved.</p>
               </div>
             </div>
           </footer>
