@@ -103,7 +103,7 @@ export function HeroSection() {
                   <Sparkles className="w-5 h-5 text-orange-500" />
                 </motion.div>
                 <Badge variant="outline" className="bg-gradient-to-r from-orange-100 to-red-100 border-orange-300 text-orange-800 text-sm font-medium px-4 py-2">
-                  Authentic Since 1995 • Award Winning
+                  Authentic Since 2017 •
                 </Badge>
               </motion.div>
               
