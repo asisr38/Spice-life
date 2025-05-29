@@ -47,7 +47,7 @@ export function MobileOrderButton({ size = "default", className = "" }: MobileOr
               <Card className="border-0 shadow-2xl">
                 <CardContent className="p-6">
                   <div className="flex justify-between items-center mb-6">
-                    <h3 className="text-xl font-bold text-[#4A1C1A] font-serif">Choose Location</h3>
+                    <h3 className="text-xl font-bold text-[#4A1C1A] font-barriecito">Choose Location</h3>
                     <Button
                       variant="ghost"
                       size="sm"

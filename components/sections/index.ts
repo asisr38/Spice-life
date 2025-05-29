@@ -1,0 +1,7 @@
+export { HeroSection } from './hero-section'
+export { AboutSection } from './about-section'
+export { MenuSection } from './menu-section'
+export { LocationsSection } from './locations-section'
+export { CateringSection } from './catering-section'
+export { ContactSection } from './contact-section'
+export { FinalCTASection } from './final-cta-section' 

@@ -56,7 +56,14 @@ function FitBounds() {
     const bounds = L.latLngBounds(
       LOCATIONS.map(location => [location.coordinates.lat, location.coordinates.lng])
     )
-    map.fitBounds(bounds, { padding: [20, 20] })
+    
+    // Check if it's mobile view and set appropriate padding
+    const isMobile = window.innerWidth < 768
+    const paddingOptions = isMobile 
+      ? { padding: [50, 50] as L.PointTuple }
+      : { padding: [20, 20] as L.PointTuple }
+    
+    map.fitBounds(bounds, paddingOptions)
   }, [map])
   
   return null
@@ -75,7 +82,14 @@ function MapResetControl() {
       const bounds = L.latLngBounds(
         LOCATIONS.map(location => [location.coordinates.lat, location.coordinates.lng])
       )
-      map.fitBounds(bounds, { padding: [20, 20] })
+      
+      // Use same mobile-responsive padding as FitBounds
+      const isMobile = window.innerWidth < 768
+      const paddingOptions = isMobile 
+        ? { padding: [50, 50] as L.PointTuple }
+        : { padding: [20, 20] as L.PointTuple }
+      
+      map.fitBounds(bounds, paddingOptions)
       map.closePopup() // Close any open popups
     }
   }, [map])
@@ -88,30 +102,53 @@ function ScrollWheelZoomControl() {
   const map = useMap()
   
   useEffect(() => {
-    const handleWheel = (e: WheelEvent) => {
-      if (e.ctrlKey) {
-        // Enable scroll wheel zoom when Ctrl is held
+    let ctrlPressed = false
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Control') {
+        ctrlPressed = true
         map.scrollWheelZoom.enable()
-      } else {
-        // Disable scroll wheel zoom when Ctrl is not held
-        map.scrollWheelZoom.disable()
       }
     }
 
     const handleKeyUp = (e: KeyboardEvent) => {
       if (e.key === 'Control') {
-        // Disable scroll wheel zoom when Ctrl is released
+        ctrlPressed = false
         map.scrollWheelZoom.disable()
       }
     }
 
-    const mapContainer = map.getContainer()
-    mapContainer.addEventListener('wheel', handleWheel)
+    const handleWheel = (e: WheelEvent) => {
+      if (!ctrlPressed) {
+        // Allow normal page scrolling when Ctrl is not pressed
+        // Don't prevent default - let the page scroll normally
+        return
+      }
+      // When Ctrl is pressed, let the map handle the zoom
+    }
+
+    const handleBlur = () => {
+      // Reset when window loses focus
+      ctrlPressed = false
+      map.scrollWheelZoom.disable()
+    }
+
+    // Add event listeners
+    document.addEventListener('keydown', handleKeyDown)
     document.addEventListener('keyup', handleKeyUp)
+    window.addEventListener('blur', handleBlur)
+    
+    const mapContainer = map.getContainer()
+    mapContainer.addEventListener('wheel', handleWheel, { passive: true })
+
+    // Initial state - disabled
+    map.scrollWheelZoom.disable()
 
     return () => {
-      mapContainer.removeEventListener('wheel', handleWheel)
+      document.removeEventListener('keydown', handleKeyDown)
       document.removeEventListener('keyup', handleKeyUp)
+      window.removeEventListener('blur', handleBlur)
+      mapContainer.removeEventListener('wheel', handleWheel)
     }
   }, [map])
   
@@ -166,6 +203,9 @@ export function LeafletMap({ className }: LeafletMapProps) {
             <Popup
               maxWidth={320}
               className="custom-popup"
+              closeButton={true}
+              autoClose={false}
+              closeOnEscapeKey={true}
             >
               <div className="p-2">
                 {/* Location Header */}
@@ -202,8 +242,20 @@ export function LeafletMap({ className }: LeafletMapProps) {
                   <div className="flex items-start gap-2">
                     <Clock className="w-4 h-4 text-red-500 mt-0.5 flex-shrink-0" />
                     <div className="text-gray-700 text-sm">
-                      <div>Mon-Fri: {location.hours.weekdays}</div>
-                      <div>Sat-Sun: {location.hours.weekends}</div>
+                      {location.hours.weekdays ? (
+                        // Old format (Gaithersburg)
+                        <>
+                          <div>Mon-Fri: {location.hours.weekdays}</div>
+                          <div>Sat-Sun: {location.hours.weekends}</div>
+                        </>
+                      ) : (
+                        // New format (Alexandria)
+                        <>
+                          <div>Sun: {location.hours.sunday}</div>
+                          <div>Mon-Fri: {location.hours.monday}</div>
+                          <div>Sat: {location.hours.saturday}</div>
+                        </>
+                      )}
                     </div>
                   </div>
                 </div>

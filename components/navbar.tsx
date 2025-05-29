@@ -80,8 +80,8 @@ export function Navbar() {
               priority
             />
             <span
-              className={`text-xl sm:text-2xl font-bold font-serif transition-colors ${
-                isScrolled ? "text-brown-900" : "text-white"
+              className={`text-xl sm:text-2xl font-bold font-barriecito transition-colors ${
+                isScrolled ? "text-brown-900" : "text-gray-900"
               }`}
             >
               Spice Life
@@ -96,7 +96,7 @@ export function Navbar() {
                 onClick={() => scrollToSection(item.href)}
                 onKeyDown={(e) => handleKeyDown(e, item.href)}
                 className={`transition-all duration-200 font-medium hover:text-spice-500 focus:outline-none focus:ring-2 focus:ring-spice-500 rounded px-2 py-1 ${
-                  isScrolled ? "text-gray-700" : "text-white"
+                  isScrolled ? "text-gray-700" : "text-gray-800"
                 }`}
                 aria-label={`Navigate to ${item.name} section`}
               >
@@ -115,7 +115,7 @@ export function Navbar() {
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
               className={`transition-colors p-2 focus:ring-2 focus:ring-spice-500 ${
-                isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-white hover:bg-white/10"
+                isScrolled ? "text-gray-700 hover:bg-gray-100" : "text-gray-800 hover:bg-gray-100/20"
               }`}
               aria-label={isOpen ? "Close menu" : "Open menu"}
               aria-expanded={isOpen}

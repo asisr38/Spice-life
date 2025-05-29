@@ -103,6 +103,8 @@ const config: Config = {
   			sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],
   			serif: ['var(--font-playfair)', 'Georgia', 'serif'],
   			handwritten: ['var(--font-kalam)', 'Kalam', 'Comic Sans MS', 'cursive'],
+  			barriecito: ['var(--font-barriecito)', 'Barriecito', 'cursive'],
+  			'red-hat': ['var(--font-red-hat-display)', 'Red Hat Display', 'sans-serif'],
   		},
   		fontSize: {
   			'xs': ['0.75rem', { lineHeight: '1rem' }],

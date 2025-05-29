@@ -79,7 +79,7 @@
   
   /* Typography System */
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-secondary;
+    @apply font-barriecito text-secondary;
     font-feature-settings: "kern" 1;
   }
   
@@ -121,11 +121,11 @@
   
   /* Brand-specific typography */
   .brand-heading {
-    @apply font-serif text-secondary font-bold;
+    @apply font-barriecito text-secondary font-bold;
   }
   
   .brand-subheading {
-    @apply font-sans text-muted-foreground font-medium;
+    @apply font-red-hat text-muted-foreground font-medium;
   }
   
   .brand-accent {
@@ -203,6 +203,7 @@ html {
 .leaflet-popup-content-wrapper {
   border-radius: 8px;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 9999 !important;
 }
 
 .leaflet-popup-content {
@@ -212,6 +213,38 @@ html {
 
 .leaflet-popup-tip {
   background: white;
+  z-index: 9999 !important;
+}
+
+.leaflet-popup-close-button {
+  z-index: 10000 !important;
+}
+
+/* Fix popup z-index to appear above other elements */
+.leaflet-popup-pane {
+  z-index: 9999 !important;
+}
+
+.leaflet-popup {
+  z-index: 9999 !important;
+}
+
+/* Ensure popup appears above all map elements */
+.leaflet-map-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-control-container {
+  z-index: 1000 !important;
+}
+
+/* Ensure map overlays stay below popups */
+.leaflet-container .absolute {
+  z-index: 10 !important;
+}
+
+.leaflet-container .absolute.z-10 {
+  z-index: 10 !important;
 }
 
 .custom-marker {
