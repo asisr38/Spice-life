@@ -1,7 +1,7 @@
 "use client"
 import { motion } from "framer-motion"
 import { Card } from "@/components/ui/card"
-import { MapPin, Users, Award, Utensils } from "lucide-react"
+import { MapPin, Users, Award } from "lucide-react"
 import { MotionSection } from "@/components/motion-section"
 import { SectionHeader } from "@/components/section-header"
 import { LeafletMapWrapper } from "@/components/leaflet-map-wrapper"

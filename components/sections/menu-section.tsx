@@ -43,7 +43,6 @@ export function MenuSection() {
 
   return (
     <section id="menu" className="section-padding bg-gradient-to-b from-accent/30 to-background relative overflow-hidden w-full">
-      <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
       <div className="max-w-7xl mx-auto container-padding relative">
         <MotionSection delay={0.2}>
           <SectionHeader
@@ -140,7 +139,7 @@ export function MenuSection() {
           {/* Call to Action */}
           <div className="text-center mt-12 space-y-4">
             <p className="text-muted-foreground font-red-hat text-lg">
-              Can't decide? Our friendly staff is here to help you choose the perfect meal!
+              Can&apos;t decide? Our friendly staff is here to help you choose the perfect meal!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button asChild size="lg" className="btn-primary font-red-hat">

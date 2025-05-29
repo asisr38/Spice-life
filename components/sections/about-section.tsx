@@ -41,7 +41,6 @@ export function AboutSection() {
 
   return (
     <section id="about" className="section-padding bg-gradient-to-b from-background to-accent/30 relative overflow-hidden w-full">
-      <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5"></div>
       <div className="max-w-7xl mx-auto container-padding relative">
         <MotionSection delay={0.2}>
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center mb-20">

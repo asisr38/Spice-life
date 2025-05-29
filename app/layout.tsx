@@ -41,6 +41,7 @@ const redHatDisplay = Red_Hat_Display({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://spicelife.com'),
   title: {
     default: "Spice Life - Authentic Indian Restaurant",
     template: "%s | Spice Life"

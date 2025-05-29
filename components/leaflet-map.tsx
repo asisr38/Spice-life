@@ -118,7 +118,7 @@ function ScrollWheelZoomControl() {
       }
     }
 
-    const handleWheel = (e: WheelEvent) => {
+    const handleWheel = () => {
       if (!ctrlPressed) {
         // Allow normal page scrolling when Ctrl is not pressed
         // Don't prevent default - let the page scroll normally
